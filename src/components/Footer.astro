@@ -1,0 +1,164 @@
+---
+import Logo from './Logo.astro';
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<div class="footer-brand">
+				<a href="/" class="logo">
+					<Logo size="medium" class="logo-svg" />
+				</a>
+				<p class="brand-description">
+					GPS tracking platform for monitoring field teams in real-time.
+					A service by <a href="https://chekku.co" target="_blank" rel="noopener">Chekku</a>.
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<div class="footer-column">
+					<h4>Product</h4>
+					<ul>
+						<li><a href="#features">Features</a></li>
+						<li><a href="#pricing">Pricing</a></li>
+						<li><a href="/docs">Documentation</a></li>
+						<li><a href="/api">API</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-column">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="/about">About</a></li>
+						<li><a href="https://chekku.co" target="_blank" rel="noopener">Chekku</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li><a href="/blog">Blog</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-column">
+					<h4>Support</h4>
+					<ul>
+						<li><a href="/help">Help Center</a></li>
+						<li><a href="/status">Status</a></li>
+						<li><a href="/privacy">Privacy</a></li>
+						<li><a href="/terms">Terms</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p>&copy; {new Date().getFullYear()} Trakking. All rights reserved.</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: var(--color-text);
+		color: rgba(255, 255, 255, 0.8);
+		padding: 4rem 0 2rem;
+	}
+
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		gap: 4rem;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-brand {
+		max-width: 400px;
+	}
+
+	.logo {
+		display: inline-flex;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.logo :global(.logo-svg) {
+		color: white;
+	}
+
+	.brand-description {
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.brand-description a {
+		color: #00E887;
+		text-decoration: underline;
+		transition: color 0.2s;
+	}
+
+	.brand-description a:hover {
+		color: #5affb0;
+	}
+
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.footer-column h4 {
+		color: white;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.footer-column ul {
+		list-style: none;
+	}
+
+	.footer-column li {
+		margin-bottom: 0.75rem;
+	}
+
+	.footer-column a {
+		color: rgba(255, 255, 255, 0.7);
+		transition: color 0.2s;
+	}
+
+	.footer-column a:hover {
+		color: white;
+	}
+
+	.footer-bottom {
+		padding-top: 2rem;
+		text-align: center;
+		font-size: 0.875rem;
+	}
+
+	@media (max-width: 768px) {
+		.footer {
+			padding: 3rem 0 1.5rem;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.footer-links {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+</style>

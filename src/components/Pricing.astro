@@ -1,0 +1,356 @@
+---
+import { getTranslations, type Language } from '../i18n/translations';
+
+interface Props {
+  lang?: Language;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="pricing" class="pricing">
+	<div class="container">
+		<div class="pricing-header">
+			<h2 class="section-title">{t.pricing.title}</h2>
+			<p class="section-description">
+				{t.pricing.subtitle}
+			</p>
+		</div>
+
+		<div class="pricing-grid">
+			<div class="pricing-card">
+				<div class="plan-header">
+					<h3 class="plan-name">{t.pricing.essential.name}</h3>
+					<div class="plan-price">
+						<span class="price">{t.pricing.essential.price}</span>
+						<span class="period">{t.pricing.essential.period}</span>
+					</div>
+					<p class="plan-description">{t.pricing.essential.description}</p>
+				</div>
+
+				<ul class="plan-features">
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.realtimeGPS}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.geofences3}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.basicSummaries}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.history30}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.mobileApp}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.emailSupport}</span>
+					</li>
+				</ul>
+
+				<a href="/signup?plan=essential" class="btn-plan">{t.pricing.essential.cta}</a>
+			</div>
+
+			<div class="pricing-card featured">
+				<div class="popular-badge">{t.pricing.pro.badge}</div>
+				<div class="plan-header">
+					<h3 class="plan-name">{t.pricing.pro.name}</h3>
+					<div class="plan-price">
+						<span class="price">{t.pricing.pro.price}</span>
+						<span class="period">{t.pricing.pro.period}</span>
+					</div>
+					<p class="plan-description">{t.pricing.pro.description}</p>
+				</div>
+
+				<ul class="plan-features">
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span><strong>{t.pricing.pro.includesEssential}</strong></span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.geofencesUnlimited}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.advancedAnalytics}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.routeOptimization}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.historyUnlimited}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.teamManagement}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.customNotifications}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.prioritySupport}</span>
+					</li>
+					<li>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+						<span>{t.pricing.features.apiAccess}</span>
+					</li>
+				</ul>
+
+				<a href="/signup?plan=pro" class="btn-plan primary">{t.pricing.pro.cta}</a>
+			</div>
+		</div>
+
+		<div class="pricing-note">
+			<p>{t.pricing.note}</p>
+			<p>{t.pricing.enterprise} <a href="mailto:sales@trakking.app">{t.pricing.contact}</a> {t.pricing.customPricing}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.pricing {
+		padding: 6rem 0;
+		background: var(--color-bg-gray);
+	}
+
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.pricing-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--color-text);
+		margin-bottom: 1rem;
+	}
+
+	.section-description {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+	}
+
+	.pricing-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		max-width: 900px;
+		margin: 0 auto 3rem;
+	}
+
+	.pricing-card {
+		background: white;
+		border-radius: 1.5rem;
+		padding: 2.5rem;
+		border: 3px solid var(--color-text);
+		position: relative;
+		transition: all 0.3s;
+		box-shadow: 2px 2px 0px var(--color-text);
+	}
+
+	.pricing-card:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 4px 4px 0px var(--color-text);
+	}
+
+	.pricing-card.featured {
+		border-color: var(--color-primary);
+		box-shadow: 2px 2px 0px var(--color-primary);
+	}
+
+	.pricing-card.featured:hover {
+		box-shadow: 4px 4px 0px var(--color-primary);
+	}
+
+	.popular-badge {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: var(--color-primary);
+		color: white;
+		padding: 0.5rem 1.5rem;
+		border-radius: 2rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		border: 2px solid var(--color-text);
+		box-shadow: 2px 2px 0px var(--color-text);
+	}
+
+	.plan-header {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.plan-name {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin-bottom: 1rem;
+	}
+
+	.plan-price {
+		display: flex;
+		align-items: baseline;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.price {
+		font-size: 3rem;
+		font-weight: 800;
+		color: var(--color-text);
+	}
+
+	.period {
+		font-size: 1rem;
+		color: var(--color-text-light);
+	}
+
+	.plan-description {
+		color: var(--color-text-light);
+		font-size: 1rem;
+	}
+
+	.plan-features {
+		list-style: none;
+		margin-bottom: 2rem;
+	}
+
+	.plan-features li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.plan-features svg {
+		color: var(--color-primary);
+		flex-shrink: 0;
+		margin-top: 2px;
+	}
+
+	.btn-plan {
+		display: block;
+		width: 100%;
+		padding: 1rem;
+		border-radius: 0.75rem;
+		font-weight: 600;
+		text-align: center;
+		transition: all 0.2s;
+		border: 3px solid var(--color-text);
+		background: white;
+		color: var(--color-text);
+		box-shadow: 2px 2px 0px var(--color-text);
+	}
+
+	.btn-plan:hover {
+		border-color: var(--color-text);
+		color: var(--color-text);
+		transform: translate(-2px, -2px);
+		box-shadow: 4px 4px 0px var(--color-text);
+	}
+
+	.btn-plan.primary {
+		background: var(--color-primary);
+		color: white;
+		border-color: var(--color-text);
+	}
+
+	.btn-plan.primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-text);
+		color: white;
+	}
+
+	.pricing-note {
+		text-align: center;
+		color: var(--color-text-light);
+		line-height: 1.8;
+	}
+
+	.pricing-note a {
+		color: var(--color-primary);
+		font-weight: 600;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		.pricing {
+			padding: 3rem 0;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.pricing-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.pricing-card {
+			padding: 2rem;
+		}
+
+		.price {
+			font-size: 2.5rem;
+		}
+	}
+</style>
