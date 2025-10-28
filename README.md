@@ -40,13 +40,13 @@ All commands are run from the root of the project, from a terminal:
    ```bash
    git add .
    git commit -m "Configure GitHub Pages deployment"
-   git remote add origin git@github.com:chekku-inc/trakking-website.git
+   git remote add origin git@github.com:f1lander/trakking-website.git
    git branch -M main
    git push -u origin main
    ```
 
 2. **Enable GitHub Pages in your repository:**
-   - Go to your repository on GitHub: https://github.com/chekku-inc/trakking-website
+   - Go to your repository on GitHub: https://github.com/f1lander/trakking-website
    - Click on "Settings"
    - Scroll down to "Pages" in the left sidebar
    - Under "Source", select "GitHub Actions"
@@ -61,7 +61,7 @@ All commands are run from the root of the project, from a terminal:
    - Add a CNAME record:
      - Type: `CNAME`
      - Host: `@` or `www` (depending on what you want)
-     - Value: `chekku-inc.github.io`
+     - Value: `f1lander.github.io`
      - TTL: Automatic
 
 2. **In GitHub:**
