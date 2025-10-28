@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.55.0",
     "astro": "^5.15.2"
   }
 }
