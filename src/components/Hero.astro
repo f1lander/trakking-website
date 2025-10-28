@@ -1,6 +1,5 @@
 ---
 import { getTranslations, type Language } from '../i18n/translations';
-import '@lottiefiles/dotlottie-web';
 
 interface Props {
   lang?: Language;
@@ -27,19 +26,41 @@ const t = getTranslations(lang);
 				<p class="hero-note">{t.hero.noCreditCard}</p>
 			</div>
 
-		<div class="hero-image">
-			<div class="lottie-container">
-				<dotlottie-player
-					src="https://lottie.host/83341b24-1d62-4a51-a41b-846a3c0b7c64/mDA431FYMV.lottie"
-					autoplay
-					loop
-					style="width: 100%; height: 100%;"
-				></dotlottie-player>
+			<div class="hero-image">
+				<!-- Lottie Animation Container -->
+				<div class="lottie-container">
+					<canvas id="hero-lottie-canvas" class="lottie-canvas"></canvas>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
+
+<script>
+	import { DotLottie } from '@lottiefiles/dotlottie-web';
+
+	function initLottie() {
+		const canvasElement = document.getElementById('hero-lottie-canvas') as HTMLCanvasElement;
+		if (!canvasElement) return;
+
+		const dotLottie = new DotLottie({
+			autoplay: true,
+			loop: true,
+			canvas: canvasElement,
+			src: "https://lottie.host/YOUR_ANIMATION_ID.lottie", // Replace with your animation URL
+		});
+	}
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLottie);
+	} else {
+		initLottie();
+	}
+
+	// Re-initialize on page navigation (for Astro)
+	document.addEventListener('astro:page-load', initLottie);
+</script>
 
 <style>
 	.hero {
@@ -129,6 +150,131 @@ const t = getTranslations(lang);
 		justify-content: center;
 	}
 
+	.lottie-canvas {
+		width: 100%;
+		max-width: 600px;
+		height: 100%;
+		max-height: 600px;
+	}
+
+	.image-placeholder {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+
+	.device-mockup {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.phone {
+		position: relative;
+		width: 320px;
+		height: 650px;
+		background: linear-gradient(145deg, #1e293b, #334155);
+		border-radius: 45px;
+		padding: 15px;
+		box-shadow: 2px 2px 0px var(--color-text);
+		border: 4px solid var(--color-text);
+		z-index: 2;
+		transform: rotate(-2deg);
+	}
+
+	.phone-screen {
+		width: 100%;
+		height: 100%;
+		background: white;
+		border-radius: 35px;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.app-preview {
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
+		position: relative;
+	}
+
+	.map-view {
+		width: 100%;
+		height: 70%;
+		background:
+			linear-gradient(45deg, #93c5fd 25%, transparent 25%),
+			linear-gradient(-45deg, #93c5fd 25%, transparent 25%),
+			linear-gradient(45deg, transparent 75%, #93c5fd 75%),
+			linear-gradient(-45deg, transparent 75%, #93c5fd 75%);
+		background-size: 40px 40px;
+		background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+		opacity: 0.3;
+	}
+
+	.team-members {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		right: 20px;
+		display: flex;
+		gap: 12px;
+		padding: 15px;
+		background: rgba(255, 255, 255, 0.95);
+		border-radius: 20px;
+		backdrop-filter: blur(10px);
+		box-shadow: 2px 2px 0px rgba(44, 43, 71, 0.8);
+		border: 2px solid rgba(44, 43, 71, 0.8);
+	}
+
+	.member {
+		width: 60px;
+		height: 60px;
+		background: linear-gradient(135deg, #00E887, #5affb0);
+		border-radius: 50%;
+		border: 3px solid white;
+	}
+
+	.tracker-device {
+		position: absolute;
+		top: 10%;
+		left: -15%;
+		width: 180px;
+		height: 120px;
+		background: linear-gradient(145deg, #334155, #1e293b);
+		border-radius: 20px;
+		box-shadow: 2px 2px 0px var(--color-text);
+		border: 3px solid var(--color-text);
+		z-index: 1;
+		transform: rotate(8deg);
+	}
+
+	.tracker-device::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 40px;
+		height: 40px;
+		background: radial-gradient(circle, #00E887 30%, transparent 70%);
+		border-radius: 50%;
+		animation: pulse 2s infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+		}
+		50% {
+			opacity: 0.5;
+			transform: translate(-50%, -50%) scale(1.2);
+		}
+	}
+
 	@media (max-width: 1024px) {
 		.hero-layout {
 			grid-template-columns: 1fr;
@@ -144,8 +290,22 @@ const t = getTranslations(lang);
 			justify-content: center;
 		}
 
-		.hero-image {
-			height: 500px;
+	.hero-image {
+		height: 500px;
+	}
+
+	.lottie-canvas {
+		max-height: 500px;
+	}
+
+		.phone {
+			width: 280px;
+			height: 570px;
+		}
+
+		.tracker-device {
+			width: 150px;
+			height: 100px;
 		}
 	}
 
@@ -175,8 +335,23 @@ const t = getTranslations(lang);
 			padding: 0 1rem;
 		}
 
-		.hero-image {
-			height: 400px;
+	.hero-image {
+		height: 400px;
+	}
+
+	.lottie-canvas {
+		max-height: 400px;
+	}
+
+		.phone {
+			width: 240px;
+			height: 480px;
+		}
+
+		.tracker-device {
+			width: 120px;
+			height: 80px;
+			left: -10%;
 		}
 	}
 </style>
