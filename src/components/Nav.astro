@@ -55,20 +55,13 @@ const t = getTranslations(lang);
 		langButtons.forEach(button => {
 			button.addEventListener('click', () => {
 				const newLang = button.getAttribute('data-lang');
-				let currentPath = window.location.pathname;
 				
-				// Remove language prefix if present
-				if (currentPath.includes('/es/')) {
-					currentPath = currentPath.replace('/es/', '/');
-				} else if (currentPath.includes('/es')) {
-					currentPath = currentPath.replace('/es', '');
-				}
-				
-				// Build new path
-				let newPath = currentPath;
+				// Build new path based on language
+				let newPath;
 				if (newLang === 'es') {
-					// Add /es/ to the path
-					newPath = '/es' + (currentPath === '/' ? '' : currentPath);
+					newPath = '/es/';
+				} else {
+					newPath = '/';
 				}
 				
 				window.location.href = newPath;
