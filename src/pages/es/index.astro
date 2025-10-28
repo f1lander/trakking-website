@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import VideoSection from '../../components/VideoSection.astro';
+import AIFeatures from '../../components/AIFeatures.astro';
+import Features from '../../components/Features.astro';
+import Pricing from '../../components/Pricing.astro';
+import Footer from '../../components/Footer.astro';
+import type { Language } from '../../i18n/translations';
+
+const lang: Language = 'es';
+
+const pageTitle = 'Trakking - Rastreo GPS para Equipos de Campo';
+---
+
+<Layout title={pageTitle}>
+	<Nav lang={lang} />
+	<Hero lang={lang} />
+	<VideoSection lang={lang} />
+	<AIFeatures lang={lang} />
+	<Features lang={lang} />
+	<Pricing lang={lang} />
+	<Footer />
+</Layout>
+

@@ -9,14 +9,10 @@ import Pricing from '../components/Pricing.astro';
 import Footer from '../components/Footer.astro';
 import type { Language } from '../i18n/translations';
 
-// Get language from URL params, default to 'en'
-const url = Astro.url;
-const langParam = url.searchParams.get('lang');
-const lang: Language = (langParam === 'es' ? 'es' : 'en');
+// Default to English
+const lang: Language = 'en';
 
-const pageTitle = lang === 'es'
-	? 'Trakking - Rastreo GPS para Equipos de Campo'
-	: 'Trakking - GPS Tracking for Field Teams';
+const pageTitle = 'Trakking - GPS Tracking for Field Teams';
 ---
 
 <Layout title={pageTitle}>

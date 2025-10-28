@@ -55,9 +55,30 @@ const t = getTranslations(lang);
 		langButtons.forEach(button => {
 			button.addEventListener('click', () => {
 				const newLang = button.getAttribute('data-lang');
-				const currentUrl = new URL(window.location.href);
-				currentUrl.searchParams.set('lang', newLang || 'en');
-				window.location.href = currentUrl.toString();
+				const currentPath = window.location.pathname;
+				
+				// Remove base path if present
+				let path = currentPath.replace('/trakking-website', '');
+				
+				// If already on Spanish page, remove /es
+				if (path.startsWith('/es')) {
+					path = path.replace('/es', '');
+				}
+				
+				// Build new URL based on language
+				let newUrl = '/';
+				if (newLang === 'es') {
+					newUrl = '/es' + path;
+				} else {
+					newUrl = path;
+				}
+				
+				// Add base path if present
+				if (window.location.pathname.includes('/trakking-website')) {
+					newUrl = '/trakking-website' + newUrl;
+				}
+				
+				window.location.href = newUrl;
 			});
 		});
 	}
