@@ -46,6 +46,10 @@ const t = getTranslations(lang);
 				<a href="/signup" class="btn-primary">{t.nav.signup}</a>
 			</div>
 
+			<div class="nav-actions-mobile-top">
+				<a href="/login" class="btn-link-mobile-top">{t.nav.login}</a>
+			</div>
+
 			<button class="menu-toggle" aria-label="Toggle menu">
 				<span class="menu-icon"></span>
 				<span class="menu-icon"></span>
@@ -178,11 +182,15 @@ const t = getTranslations(lang);
 	}
 
 	.logo-mobile {
-		display: none;
+		display: none !important;
 	}
 
 	.logo-desktop {
-		display: block;
+		display: block !important;
+	}
+
+	.nav-actions-mobile-top {
+		display: none;
 	}
 
 	.nav-links {
@@ -396,13 +404,25 @@ const t = getTranslations(lang);
 		box-shadow: 3px 3px 0px var(--color-text);
 	}
 
+	.btn-link-mobile-top {
+		color: var(--color-text);
+		font-weight: 500;
+		padding: 0.5rem 1rem;
+		transition: color 0.2s;
+		font-size: 0.875rem;
+	}
+
+	.btn-link-mobile-top:hover {
+		color: var(--color-primary);
+	}
+
 	@media (max-width: 768px) {
 		.logo-desktop {
-			display: none;
+			display: none !important;
 		}
 
 		.logo-mobile {
-			display: block;
+			display: block !important;
 		}
 
 		.nav-links {
@@ -411,6 +431,13 @@ const t = getTranslations(lang);
 
 		.nav-actions-desktop {
 			display: none;
+		}
+
+		.nav-actions-mobile-top {
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+			margin-right: 1rem;
 		}
 
 		.menu-toggle {
