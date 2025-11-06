@@ -14,8 +14,7 @@ const t = getTranslations(lang);
 	<div class="container">
 		<div class="nav-content">
 			<a href="/" class="logo">
-				<Logo size="large" class="logo-svg logo-desktop" />
-				<Logo size="medium" class="logo-svg logo-mobile" />
+				<Logo size="large" class="logo-svg" />
 			</a>
 
 			<div class="nav-links">
@@ -42,12 +41,11 @@ const t = getTranslations(lang);
 						ES
 					</button>
 				</div>
-				<a href="/login" class="btn-link">{t.nav.login}</a>
-				<a href="/signup" class="btn-primary">{t.nav.signup}</a>
+				<a href="/login" class="login-btn">{t.nav.login}</a>
 			</div>
 
 			<div class="nav-actions-mobile-top">
-				<a href="/login" class="btn-link-mobile-top">{t.nav.login}</a>
+				<a href="/login" class="login-btn">{t.nav.login}</a>
 			</div>
 
 			<button class="menu-toggle" aria-label="Toggle menu">
@@ -64,7 +62,7 @@ const t = getTranslations(lang);
 					<a href="#pricing">{t.nav.pricing}</a>
 					<a href="https://chekku.co" target="_blank" rel="noopener">Chekku</a>
 				</div>
-				<div class="mobile-actions">
+			<div class="mobile-actions">
 					<div class="language-switcher-mobile">
 						<button
 							class="lang-btn"
@@ -83,7 +81,6 @@ const t = getTranslations(lang);
 						</button>
 					</div>
 					<a href="/login" class="btn-link-mobile">{t.nav.login}</a>
-					<a href="/signup" class="btn-primary-mobile">{t.nav.signup}</a>
 				</div>
 			</div>
 		</div>
@@ -175,18 +172,11 @@ const t = getTranslations(lang);
 		display: flex;
 		align-items: center;
 		z-index: 1001;
+		--trakking-logo-height: 60px;
 	}
 
 	.logo :global(.logo-svg) {
 		color: #2C2B47;
-	}
-
-	.logo-mobile {
-		display: none !important;
-	}
-
-	.logo-desktop {
-		display: block !important;
 	}
 
 	.nav-actions-mobile-top {
@@ -226,22 +216,7 @@ const t = getTranslations(lang);
 		color: var(--color-primary);
 	}
 
-	.btn-primary {
-		background: var(--color-primary);
-		color: white;
-		padding: 0.75rem 1.5rem;
-		border-radius: 0.5rem;
-		font-weight: 600;
-		transition: all 0.2s;
-		border: 2px solid var(--color-text);
-		box-shadow: 2px 2px 0px var(--color-text);
-	}
-
-	.btn-primary:hover {
-		background: var(--color-primary-dark);
-		transform: translate(-1px, -1px);
-		box-shadow: 3px 3px 0px var(--color-text);
-	}
+	/* removed top signup primary button */
 
 	.language-switcher {
 		display: flex;
@@ -386,24 +361,6 @@ const t = getTranslations(lang);
 		background: rgba(0, 200, 122, 0.1);
 	}
 
-	.btn-primary-mobile {
-		background: var(--color-primary);
-		color: white;
-		padding: 0.875rem 1.5rem;
-		border-radius: 0.5rem;
-		font-weight: 600;
-		text-align: center;
-		transition: all 0.2s;
-		border: 2px solid var(--color-text);
-		box-shadow: 2px 2px 0px var(--color-text);
-	}
-
-	.btn-primary-mobile:hover {
-		background: var(--color-primary-dark);
-		transform: translate(-1px, -1px);
-		box-shadow: 3px 3px 0px var(--color-text);
-	}
-
 	.btn-link-mobile-top {
 		color: var(--color-text);
 		font-weight: 500;
@@ -417,12 +374,8 @@ const t = getTranslations(lang);
 	}
 
 	@media (max-width: 768px) {
-		.logo-desktop {
-			display: none !important;
-		}
-
-		.logo-mobile {
-			display: block !important;
+		.logo {
+			--trakking-logo-height: 45px;
 		}
 
 		.nav-links {
